@@ -6,11 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paso3</title>
     <link rel="stylesheet" href="style1.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/sistemas.jpg">
 </head>
 <body>
     <div class="content">
         <p>
-            delete from Alumnos_tesoem where  carrera='Ing. Sistemas A';<br>
+            SELECT a.matricula_alu as matricula,a.apellido_paterno || ' ' ||a.apellido_materno|| ' ' ||  a.nombre as Nombre, a.promedio_pasado as promedio, a.semestre,a.carrera <br>
+            FROM Alumnos_tesoem a <br>
+            LEFT JOIN ISC isc ON a.matricula_alu = isc.matricula_alu <br>
+            LEFT JOIN Admi ad ON a.matricula_alu = ad.matricula_alu <br>
+            LEFT JOIN Gas gas ON a.matricula_alu = gas.matricula_alu <br>
+            LEFT JOIN Ind ind ON a.matricula_alu = ind.matricula_alu <br>
+            LEFT JOIN Ener ener ON a.matricula_alu = ener.matricula_alu <br>
+            LEFT JOIN Cont con ON a.matricula_alu = con.matricula_alu <br>
+            LEFT JOIN Aut auto ON a.matricula_alu = auto.matricula_alu <br>
+            LEFT JOIN Tic tic ON a.matricula_alu = tic.matricula_alu <br>
+            WHERE a.semestre = '5'; <br>
         </p>
         <a href="index.html">Regresar</a>
     </div>
