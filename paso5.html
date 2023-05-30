@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paso4</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="content">
+        <p>
+            create table ISC_profe (<br>
+                ISC nvarchar2(60),<br>
+                id_alu_p number(10),<br>
+                nombre varchar2 (100),<br>
+                grupo nvarchar2(6)br
+            );<br>
+            
+            <br><br>
+            create table Admin_profe (<br>
+                ISC nvarchar2(60),<br>
+                id_alu_p number(10),<br>
+                nombre varchar2 (100),<br>
+                grupo nvarchar2(6)
+            );<br>
+            <br><br>
+            create table Gas_profe (<br>
+                ISC nvarchar2(60),<br>
+                id_alu_p number(10),<br>
+                nombre varchar2 (100), <br>
+                grupo nvarchar2(6)
+            );<br>
+            <br><br>
+            create table Ind_profe (<br>
+                ISC nvarchar2(60),<br>
+                id_alu_p number(10),<br>
+                nombre varchar2 (100),<br>
+                grupo nvarchar2(6)
+            );<br>
+            <br><br>
+            create table Ener_profe (<br>
+                ISC nvarchar2(60),<br>
+                id_alu_p number(10),<br>
+                nombre varchar2 (100),<br>
+                grupo nvarchar2(6)
+            );<br>
+            
+            create table Con_profe ( <br>
+                ISC nvarchar2(60),<br>
+                id_alu_p number(10),<br>
+                nombre varchar2 (100),<br>
+                grupo nvarchar2(6)
+            );<br>
+            <br><br>
+            create table Auto_profe (<br>
+                ISC nvarchar2(60),<br>
+                id_alu_p number(10),<br>
+                nombre varchar2 (100),<br>
+                grupo nvarchar2(6)
+            );<br>
+            <br><br>
+            
+            create table Tic_profe (<br>
+                ISC nvarchar2(60),<br>
+                id_alu_p number(10),<br>
+                nombre varchar2 (100),<br>
+                grupo nvarchar2(6)
+            );<br>
+        </p>
+        <p>
+            create or replace procedure almacena_pro <br>
+            (id_prof in number, numero_empleado in number,nombre in nvarchar2,apellido_p in nvarchar2,apellido_m in  nvarchar2,carrera_imparte in nvarchar2,nombre_classe in nvarchar2,grupo in nvarchar2) <br>
+            as <br>
+            begin <br>
+            insert into Profesores_tesoem values (id_prof, numero_empleado,nombre,apellido_p,apellido_m,carrera_imparte,nombre_classe,grupo); <br>
+            if carrera_imparte = 'Ing. Sistemas C' then <br>
+                insert into ISC_profe values (carrera_imparte,id_prof,nombre || ' ' || apellido_p || ' ' || apellido_m, grupo); <br>
+            end if; <br>
+            if carrera_imparte = 'Ing. Sistemas A' then  
+                insert into Auto_profe values (carrera_imparte,id_prof,nombre || ' ' || apellido_p || ' ' || apellido_m, grupo); <br>
+            end if; <br>
+            if carrera_imparte = 'Lic. Gastronomia' then <br>
+                insert into Gas_profe values (carrera_imparte,id_prof,nombre || ' ' || apellido_p || ' ' || apellido_m, grupo); <br>
+            end if; <br>
+            if carrera_imparte = 'Contador Publico' then 
+                insert into Con_profe values (carrera_imparte,id_prof,nombre || ' ' || apellido_p || ' ' || apellido_m, grupo); <br>
+            end if; <br>
+            if carrera_imparte = 'Ing. Administracion' then <br>
+                insert into Admin_profe values (carrera_imparte,id_prof,nombre || ' ' || apellido_p || ' ' || apellido_m, grupo); <br>
+            end if; <br>
+            if carrera_imparte = 'Ing. en ER' then  <br>
+                insert into Ener_profe values (carrera_imparte,id_prof,nombre || ' ' || apellido_p || ' ' || apellido_m, grupo); <br>
+            end if;  <br>
+            if carrera_imparte = 'Ing. Indrustrial' then <br>
+                insert into Ind_profe values (carrera_imparte,id_prof,nombre || ' ' || apellido_p || ' ' || apellido_m, grupo); <br>
+            end if; <br>
+            if carrera_imparte = 'Ing. Tics' then  <br>
+                insert into Tic_profe values (carrera_imparte,id_prof,nombre || ' ' || apellido_p || ' ' || apellido_m, grupo); <br>
+            end if; <br>
+            end;     
+        </p>
+        <p>
+            EXECUTE almacena_pro(1,212 ,'Gustavo Moises',  'Romero',  'Gonzales',    'Ing. Sistemas C'  ,'S.O'   , '5s11'); <br>
+            EXECUTE almacena_pro(2,212 ,'Gustavo Moises',  'Romero',  'Gonzales',    'Ing. Sistemas C'  ,'S.O'   , '5s12');<br>
+            EXECUTE almacena_pro(3,212 ,'Gustavo Moises',  'Romero',  'Gonzales',    'Ing. Sistemas C'  ,'TallerS.O' ,   '6s11'); <br>
+            EXECUTE almacena_pro(4,212 ,'Gustavo Moises',  'Romero',  'Gonzales',    'Ing. Sistemas C'  ,'TallerS.O' ,   '6s12');<br>
+            EXECUTE almacena_pro(5,212 ,'Gustavo Moises',  'Romero',  'Gonzales',    'Ing. Tics' , 'S.O 1'  , '5T11');<br>
+            EXECUTE almacena_pro(6,212 ,'Gustavo Moises',  'Romero',  'Gonzales',    'Ing. Tics' , 'S.O 2' ,  '6T11');<br>
+            EXECUTE almacena_pro(7,212 ,'Gustavo Moises',  'Romero',  'Gonzales',    'Ing. Tics' ,'Base de Datos',  '7T11');<br>
+            EXECUTE almacena_pro(8,147  ,'Gerardo', 'Nava','Hernandez','Ing. Sistemas C', 'Graficacion','5s11');<br>
+            EXECUTE almacena_pro(9,147  ,'Gerardo', 'Nava','Hernandez','Ing. Sistemas C', 'Graficacion','5s12');<br>
+            EXECUTE almacena_pro(10,147 ,'Gerardo', 'Nava','Hernandez','Ing. Sistemas C', 'Graficacion','6s11');<br>
+            EXECUTE almacena_pro(11,147 ,'Gerardo', 'Nava','Hernandez','Ing. Sistemas C', 'Graficacion','6s12');<br>
+            EXECUTE almacena_pro(12,681 ,'Francisco Raul' ,'Salvador' ,'Ginez' ,'Ing. Sistemas C', 'Redes' ,'6s11');<br>
+            EXECUTE almacena_pro(13,681 ,'Francisco Raul' ,'Salvador' ,'Ginez' ,'Ing. Sistemas C', 'Redes' ,'6s12');<br>
+            EXECUTE almacena_pro(14,348, 'Jose Luis', 'Villareal', 'Lopes', 'Ing. Sistemas C','Arquitectura de computadoras ','5S11');<br>
+            EXECUTE almacena_pro(15,348, 'Jose Luis', 'Villareal', 'Lopes', 'Ing. Sistemas C','Telecomunicaciones ','5S11');<br>
+            EXECUTE almacena_pro(16,348, 'Jose Luis', 'Villareal', 'Lopes', 'Ing. Tics',' Electrisidad y Magnetismo ','3T11');<br>
+            EXECUTE almacena_pro(17,348, 'Jose Luis', 'Villareal', 'Lopes', 'Ing. Tics',' Analisis de señales ','5T11');<br>
+            EXECUTE almacena_pro(18,348, 'Jose Luis', 'Villareal', 'Lopes', 'Ing. Tics',' Telecomunicaciones ','6T11');<br>
+            EXECUTE almacena_pro(19,348, 'Jose Luis', 'Villareal', 'Lopes', 'Ing. Tics',' Administracion de Redes ','8T11');<br>
+            EXECUTE almacena_pro(20,283, 'Albertossi',  'Landeros',    'Rojas',   'Ing. Sistemas C', 'Sistemas Programables  ','7s11');<br>
+            EXECUTE almacena_pro(21,283, 'Albertossi',  'Landeros',    'Rojas',   'Ing. Sistemas C', 'Principios Electricos y Aplicaciones Dijitales  ','4S11');<br>
+            EXECUTE almacena_pro(22,283, 'Albertossi',  'Landeros',    'Rojas',   'Ing. Sistemas C', 'Principios Electricos y Aplicaciones Dijitales  ','4S12');<br>
+            EXECUTE almacena_pro(23,283, 'Albertossi',  'Landeros',    'Rojas',   'Ing. Sistemas C', 'Principios Electricos y Aplicaciones Dijitales  ','4S21');<br>
+            EXECUTE almacena_pro(24,283, 'Albertossi',  'Landeros',    'Rojas',   'Ing. Tics', 'Circuitos Electronicos y Electricos ','4T11');<br><br>
+
+        </p>
+        <a href="index.html">Regresar</a>
+
+        
+    </div>
+    
+</body>
+</html>

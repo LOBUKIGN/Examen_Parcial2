@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Raleway:ital,wght@0,300;0,500;0,600;0,700;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,500;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;1,300;1,500&display=swap');
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+
+}
+body{
+    background-image: url(img/portada2.jpg) ;
+    
+    background-color: #fff;
+}
+
+.Cabecera{
+    background-color: #fff;
+    border-radius: 20px;
+    margin: 0 20px;
+    border: 20px;
+    text-align: center;
+    font-family: 'Monomaniac One', sans-serif;
+    font-weight:700;
+    color: rgba(0, 132, 255, 0.937);
+
+}
+.teso{
+    height: 75px;
+    width: 20pxpx;
+    flex-direction:row-reverse;
+    justify-content: flex-start;
+}
+.sis{
+
+    height: 70px;
+    width: 90px;
+    margin-bottom: 5px;
+}
+
+.info{
+    margin-left: 0;
+    justify-content: center;
+    align-items: center; /*centrar la letra con la imagen*/
+    text-align: center;
+    color: rgb(66, 104, 244);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    
+}
+h2{
+    text-align: justify;
+    color: rgb(211, 29, 29);
+}
+
+.Ejercicios{
+    padding: 20px;
+    margin: 30px 50px;
+    background-color: #fff;
+    border-radius: 20px;
+    text-align:justify;
+
+}
+

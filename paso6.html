@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paso4</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="content">
+        <p>
+            create table beca_alu ( <br>
+                matricula_alu number(10) unique, <br>
+                nombre varchar2 (100), <br>
+                promedio_pasado varchar(5), <br>
+                beca varchar2 (60), <br>
+                CONSTRAINT chk_beca CHECK(beca in ('no apto','10%','30%','50%','100%'))
+            ); <br>
+            select * from beca_alu;<br>
+            delete from beca_alu where beca!='no apto'; <br>
+            
+            CREATE OR REPLACE PROCEDURE determinar_apto_beca_all IS <br>
+                CURSOR c_alumnos IS <br>
+                    SELECT matricula_alu, nombre,apellido_paterno,apellido_materno , promedio_pasado
+                    FROM Alumnos_tesoem; <br>
+                v_matricula_alu beca_alu_T.matricula_alu%TYPE; <br>
+                v_nombre beca_alu_T.nombre%TYPE;<br>
+                v_apellido_p beca_alu_T.nombre%TYPE;<br>
+                v_apellido_m beca_alu_T.nombre%TYPE;<br>
+                v_promedio Alumnos_tesoem.promedio_pasado%TYPE;<br>
+                v_beca beca_alu_T.beca%TYPE;<br>
+            BEGIN <br>
+                -- Abrir el cursor y recorrer los registros
+                OPEN c_alumnos; <br>
+                LOOP <br>
+                    FETCH c_alumnos INTO v_matricula_alu, v_nombre,v_apellido_p,v_apellido_m, v_promedio; <br>
+                    EXIT WHEN c_alumnos%NOTFOUND; <br>
+                    
+                    -- Determinar la beca <br>
+                    IF v_promedio > 90 THEN <br>
+                        v_beca := '100%'; <br>
+                    ELSIF v_promedio > 80 THEN <br>
+                        v_beca := '50%'; <br>
+                    ELSIF v_promedio > 70 THEN <br>
+                        v_beca := '30%'; <br>
+                    ELSIF v_promedio > 60 THEN <br>
+                        v_beca := '10%'; <br>
+                    ELSE <br>
+                        v_beca := 'no apto'; <br>
+                    END IF; <br>
+                    
+                    -- Insertar en la tabla beca_alu_T
+                    INSERT INTO beca_alu_T (matricula_alu, nombre, promedio_pasado, beca)
+                    VALUES (v_matricula_alu, v_nombre || ' ' || v_apellido_p || ' ' || v_apellido_m, v_promedio, v_beca); <br>
+                END LOOP; <br>
+                -- Cerrar el cursor <br>
+                CLOSE c_alumnos; <br>
+            END; <br>
+            execute determinar_apto_beca_all; <br>
+        </p>
+        <a href="index.html">Regresar</a>
+    </div>
+    
+    
+</body>
+</html>

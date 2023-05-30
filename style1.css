@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+
+}
+body{
+    background-image: url(img/portada2.jpg) ;
+    background-color: #fff;
+}
+.content{
+    background-color: #fff;
+    padding: 20px 50px;
+    border-radius: 20px;
+    margin: 30px 20px;
+    border: 20px;
+}

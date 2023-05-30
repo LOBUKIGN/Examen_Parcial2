@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paso4</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="content">
+        <p>
+            create table Profesores_tesoem( <br>
+            id_prof number(10) PRIMARY KEY,--LLAVE PRYMARIA <br>
+            numero_empleado number(6)NOT NULL,--CAMPO NOT NULL (NO PUEDE ESTAR SIN VALOR) <br>
+            nombre nvarchar2(60) DEFAULT 'SinNombre',----CONSTRAINT DEFAUL (en caso de que introdusca DEFAUL mostrara el mensaje 'SinNombre') <br>
+            apellido_p nvarchar2(60) DEFAULT 'SinApellidoP',--CONSTRAINT DEFAUL (en caso de que introdusca DEFAUL mostrara el mensaje 'SinApellidoP') <br>
+            apellido_m nvarchar2(60) DEFAULT 'SinApellidoM',--CONSTRAINT DEFAUL (en caso de que introdusca DEFAUL mostrara el mensaje 'SinApellidoM') <br>
+            carrera_imparte nvarchar2(50) NOT NULL,--CONSTRAINT CHECK (SOLO SE ACEPTAN ESTOS VALORES EN EL CAMPO CARRERA) <br>
+            CONSTRAINT chk_carrera_imparte CHECK(carrera_imparte in ('Ing. Sistemas C','Ing. Sistemas A','Lic. Gastronomia','Contador Publico','Ing. Administracion','Ing. en ER','Ing. Indrustrial','Ing. Tics')), <br>
+            nombre_classe nvarchar2(50) NOT NULL,--CAMPO NOT NULL (NO PUEDE ESTAR SIN VALOR) <br>
+            grupo varchar(9)NOT NULL--CAMPO NOT NULL (NO PUEDE ESTAR SIN VALOR)
+             );<br>
+        </p>
+        <a href="index.html">Regresar</a>
+    </div>
+    
+</body>
+</html>

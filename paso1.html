@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paso1</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="content">
+    <p>
+    create table Alumnos_tesoem( <br>
+    id_alumno number(20) PRIMARY KEY,--INDICO QUE ES MI CLASE PRIMARIA <br>
+    matricula_alu number(10) UNIQUE,--CONSTRAINT UNIQUE <br>
+    nombre varchar2 (30) DEFAULT 'SinNombre',--CONSTRAINT DEFAUL (en caso de que introdusca DEFAUL mostrara el mensaje 'SinNombre') <br>
+    apellido_paterno varchar2(30)default 'SinApellidoP',--CONSTRAINT DEFAUL <br>
+    apellido_materno varchar2(30)default 'SinApellidoM',--CONTRAINT DEFAUL <br>
+    carrera varchar2 (50),--CONSTRAINT CHECK (UNICAMENTE PODRAN INTRODUCIR ESE COMBRE DE CARRERAS SI NO MARCARA ERROR) <br>
+    CONSTRAINT chk_carrera CHECK(carrera in ('Ing. Sistemas C','Ing. Sistemas A','Lic. Gastronomia','Contador Publico','Ing. Administracion','Ing. en ER','Ing. Indrustrial','Ing. Tics')), <br>
+    grupo nvarchar2(10)NOT NULL,--CAMPO NOT NULL (NO PUEDE ESTAR SIN VALOR) <br>
+    semestre number (5)NOT NULL,--CAMPO NOT NULL <br>
+    edificio varchar(5)NOT NULL,--CAMPO NOT NULL <br>
+    promedio_pasado varchar(5) NOT NULL--CAMPO NOT NULL <br>
+    );<br>
+    <a href="index.html">Regresar</a>
+    </div>
+    </p>
+    
+</body>
+</html>

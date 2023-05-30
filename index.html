@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/TESOEM.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Examen Segundo Parcial</title>
+</head>
+<body>
+    <div class="Contenido">
+        <div class="Cabecera">
+            <div class="img">
+                <img src="img/TESOEM.png"  class="teso" >
+                <img src="img/sistemas.jpg" class="sis">
+            </div>
+            <h1>Examen Segundo Parcial <br></h1>
+            <h1>Administración De Base De Datos</h1>
+
+
+        
+        </div>
+
+
+        <div class="Ejercicios">
+            <div class="info">
+                <p>Profesor:Luis Vazquez    </p>
+                <p>Alumn@:Brenda Galván Nicolás    </p>
+                <p>Grupo:6s11    </p>
+            </div>
+            <div class="Ejercicio1">
+                <h2>Ejercicio 1</h2>
+                <p>
+                    Todos los datos serán recopilados de alumnos y docentes del Tesoem, dando un total de 90 alumnos 
+                    y 27 maestros tomar evidencias con fotos. 
+                    <a href="Paso.html">Peligro</a>
+                    <br>
+                    Crear una tabla alumnos_tesoem
+                    <br>
+                    Con los siguientes valores:
+                    <br>
+                    <br>
+                    <ul>
+                        <li>Id </li>
+                        <li>Matricula</li>
+                        <li>Nombre </li>
+                        <li>Apellido paterno  </li>
+                        <li>Apellido Materno </li>
+                        <li>Carrera</li>
+                        <li>Grupo</li>
+                        <li>Semestre (1, 2, 9, etc)</li>
+                        <li>Edificio</li>
+                        <li>Promedio (semestre pasado)</li>
+                    </ul>
+                    Llenar la tabla alumnos con un proceso almacenado tomando en cuenta datos por default, primari 
+                    key, check, y unique.
+                    <a href="paso1.html">Ver</a>
+                    <br>
+                    <br>
+                    Crear una tabla para cada carrera y llenarlas con un proceso almacenado en base a la tabla 
+                    alumnos, haciendo comparación a la carrera. Mostrando: <a href="paso2.html">Ver</a>
+                    <br>
+                    <br>
+                    <ul>
+                        <li>Id </li>
+                        <li>Matricula</li>
+                        <li>Nombre y Apellidos concatenados con un alias = ‘Nombre del alumno’</li>
+                        <li>Grupo</li>
+                        <li>Edificio</li>
+                
+                    </ul>
+                    Crear joins mostrando a los alumnos que tengan el mismo semestre de todas las tablas de las 
+                    carreras. <a href="paso3.html">Ver</a>
+                    
+                </p>
+                <br>
+                <br>
+                
+            </div>
+            <div class="Ejercicio2">
+                <h2>Ejercicio 2</h2>
+                <p>
+                    Crear una tabla de profesores_tesoem <br>
+                    Con los siguientes valores: <br>
+                   
+                    <ul>
+                        <li>Id</li> 
+                        <li>Numero de empleado</li>
+                        <li>Nombre</li>
+                        <li>Apellido Paterno </li>
+                        <li>Apellido Materno </li>
+                        <li>Carrea en que imparte clase</li>
+                        <li>Nombre de la clase</li>
+                        <li>Grupo</li>
+                    </ul>
+                    Llenar la tabla profesores con un proceso almacenado tomando en cuenta datos por default, primari key, not null, y unique.  <a href="paso4.html">Ver</a>
+                    <br>
+
+                    Tomar en cuenta que cada maestro puede impartir clases en diferentes carreras, se deberá de 
+                    anotar todas las materias que da y en que carreras las da. <br>
+                    Ejemplo: el maestro Jesús tiene 5 grupos de diferentes carreras lo que equivale a un solo maestro. <br>
+                    Crear 9 tablas una por carrera y llenarlas con un proceso almacenado en base a la tabla 
+                    profesores_tesoem comparando las carreras que den. 
+                    <a href="paso5.html">Ver</a> <br><br>
+                </p>
+            </div>
+            <br>
+            <div class="Ejercicio3">
+                <h2>Ejercicio 3</h2>
+                <p>
+                    Hacer un proceso almacenado para determinar si son aptos a tener becas los alumnos del tesoem. <br>
+                    En base a la tabla de alumnos tesoem y al porcentaje que pide la escuela para que estos sean 
+                    acreedores a tener una beca. <a href="paso6.html">Ver</a><br>
+                </p>
+            </div>
+            <br><br>
+
+            <div class="Ejercicio4">
+                <h2>Ejercicio 4</h2>
+                <p>
+                    Crear su esquema de almacenes de datos en base a sus ejercicios anteriores. <a href="paso7.html">Ver</a><br>
+
+                </p>
+
+            </div>
+            <br><br>
+            <div class="Ejercicio5">
+                <h2>Ejercicio 5</h2>
+                <p>
+                    Subir todo el proyecto a GitHub en un repositorio. <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

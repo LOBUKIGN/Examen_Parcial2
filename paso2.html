@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paso2</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="content">
+    <p>
+        create table ISC_T(<br>
+        ISC nvarchar2(60),<br>
+        id_alu_S number(10),<br>
+        CONSTRAINT fk_id_alu_S FOREIGN key(id_alu_S) references Alumnos_tesoem(id_alumno), <br>
+        matricula_alu number(10),<br>
+        nombre varchar2 (100),<br>
+        grupo nvarchar2(6),<br>
+        semestre number (3),<br>
+        edificio varchar(2),<br>
+        promedio_pasado varchar(5)
+        );<br><br>
+    </p>
+    <p>
+        create table Admin_T ( <br>
+        Admi nvarchar2(60),<br>
+        id_alu_A number(10),<br>
+        CONSTRAINT fk_id_alu_A FOREIGN key(id_alu_A) references alumnos_tesoem(id_alumno), <br>
+        matricula_alu number(10), <br>
+        nombre varchar2 (100),<br>
+        grupo nvarchar2(6),<br>
+        semestre number (3),<br>
+        edificio varchar(2),<br>
+        promedio_pasado varchar(5)
+        );<br><br>
+    </p>
+    <p>
+        create table Gas_T ( <br>
+        Gas nvarchar2(60),<br>
+        id_alu_G number(10),<br>
+        CONSTRAINT fk_id_alu_G FOREIGN key(id_alu_G) references Alumnos_tesoem(id_alumno), <br>
+        matricula_alu number(10),<br>
+        nombre varchar2 (100),<br>
+        grupo nvarchar2(6),<br>
+        semestre number (3),<br>
+        edificio varchar(2),<br>
+        promedio_pasado varchar(5)
+        );<br><br>
+    </p>
+    <p>
+        create table Ind_T ( <br>
+        Ind nvarchar2(60), <br>
+        id_alu_I number(10),<br>
+        CONSTRAINT fk_id_alu_I FOREIGN key(id_alu_I) references Alumnos_tesoem(id_alumno), <br>
+        matricula_alu number(10),<br>
+        nombre varchar2 (100),<br>
+        grupo nvarchar2(6),<br>
+        semestre number (3),<br>
+        edificio varchar(2),<br>
+        promedio_pasado varchar(5)
+        );<br><br>
+    </p>
+    <p>
+        create table Ener_T (<br>
+        Ener nvarchar2(60),<br>
+        id_alu_E number(10),<br>
+        CONSTRAINT fk_id_alu_E FOREIGN key(id_alu_E) references Alumnos_tesoem(id_alumno), <br>
+        matricula_alu number(10),<br>
+        nombre varchar2 (100),<br>
+        grupo nvarchar2(6),<br>
+        semestre number (3),<br>
+        edificio varchar(2),<br>
+        promedio_pasado varchar(5)
+        );<br><br>
+    </p>
+    <p>
+        create table Con_T ( <br>
+        Cont nvarchar2(60),<br>
+        id_alu_C number(10),<br>
+        CONSTRAINT fk_id_alu_C FOREIGN key(id_alu_C) references Alumnos_tesoem(id_alumno), <br>
+        matricula_alu number(10),<br>
+        nombre varchar2 (100),<br>
+        grupo nvarchar2(6),<br>
+        semestre number (3),<br>
+        edificio varchar(2),<br>
+        promedio_pasado varchar(5)
+        );<br><br>
+    </p>
+    <p>
+        create table Auto_T (<br>
+        Aut nvarchar2(60),<br>
+        id_alu_Au number(10),<br>
+        CONSTRAINT fk_id_alu_Au FOREIGN key(id_alu_Au) references Alumnos_tesoem(id_alumno), <br>
+        matricula_alu number(10),<br>
+        nombre varchar2 (100),<br>
+        grupo nvarchar2(6),<br>
+        semestre number (3),<br>
+        edificio varchar(2),<br>
+        promedio_pasado varchar(5)
+        );<br><br>
+    </p>
+
+    <p>
+        create table Tic_T (<br>
+        Tic nvarchar2(60),<br>
+        id_alu_T number(10),<br>
+        CONSTRAINT fk_id_alu_T FOREIGN key(id_alu_T) references Alumnos_tesoem(id_alumno), <br>
+        matricula_alu number(10),<br>
+        nombre varchar2 (100),<br>
+        grupo nvarchar2(6),<br>
+        semestre number (3),<br>
+        edificio varchar(2),<br>
+        promedio_pasado varchar(5) <br>
+        );<br><br>
+    </p>
+    <p>
+    create or replace procedure alamcena_alum <br>
+    (id_alu_p in number, matricula_alu_p in number,nombre_p in varchar2,apellido_paterno_p in varchar2,apellido_materno_p in varchar2,carrera_p in varchar2,grupo_p in varchar,semestre_p in number,edificio_p in varchar,promedio_pasado_p in varchar default '0') <br>
+as <br>
+begin <br>
+    insert into Alumnos_tesoem values (id_alu_p, matricula_alu_p, nombre_p, apellido_paterno_p, apellido_materno_p, carrera_p, grupo_p,semestre_p,edificio_p,promedio_pasado_p);<br>
+    if carrera_p = 'Ing. Sistemas C' then 
+        insert into ISC_T values (carrera_p,id_alu_p,matricula_alu_p,nombre_p || ' ' || apellido_paterno_p || ' ' || apellido_materno_p, grupo_p,semestre_p,edificio_p,promedio_pasado_p);<br>
+    end if; <br>
+    if carrera_p = 'Ing. Sistemas A' then 
+        insert into Auto_T values (carrera_p,id_alu_p,matricula_alu_p,nombre_p || ' ' || apellido_paterno_p || ' ' || apellido_materno_p, grupo_p,semestre_p,edificio_p,promedio_pasado_p); <br>
+    end if; <br>
+    if carrera_p = 'Lic. Gastronomia' then 
+        insert into Gas_T values (carrera_p,id_alu_p,matricula_alu_p,nombre_p || ' ' || apellido_paterno_p || ' ' || apellido_materno_p, grupo_p,semestre_p,edificio_p,promedio_pasado_p); <br>
+    end if; <br>
+    if carrera_p = 'Contador Publico' then 
+        insert into Con_T values (carrera_p,id_alu_p,matricula_alu_p,nombre_p || ' ' || apellido_paterno_p || ' ' || apellido_materno_p, grupo_p,semestre_p,edificio_p,promedio_pasado_p); <br>
+    end if; <br>
+    if carrera_p = 'Ing. Administracion' then 
+        insert into Admin_T values (carrera_p,id_alu_p,matricula_alu_p,nombre_p || ' ' || apellido_paterno_p || ' ' || apellido_materno_p, grupo_p,semestre_p,edificio_p,promedio_pasado_p); <br>
+    end if; <br>
+    if carrera_p = 'Ing. en ER' then 
+        insert into Ener_T values (carrera_p,id_alu_p,matricula_alu_p,nombre_p || ' ' || apellido_paterno_p || ' ' || apellido_materno_p, grupo_p,semestre_p,edificio_p,promedio_pasado_p); <br>
+    end if; <br>
+    if carrera_p = 'Ing. Indrustrial' then 
+        insert into Ind_T values (carrera_p,id_alu_p,matricula_alu_p,nombre_p || ' ' || apellido_paterno_p || ' ' || apellido_materno_p, grupo_p,semestre_p,edificio_p,promedio_pasado_p); <br>
+    end if; <br>
+    if carrera_p = 'Ing. Tics' then 
+        insert into Tic_T values (carrera_p,id_alu_p,matricula_alu_p,nombre_p || ' ' || apellido_paterno_p || ' ' || apellido_materno_p, grupo_p,semestre_p,edificio_p,promedio_pasado_p); <br>
+    end if; <br>
+    end;<br>
+    </p>
+
+    <a href="index.html">Regresar</a>
+    </div>
+    </p>
+    
+</body>
+</html>
